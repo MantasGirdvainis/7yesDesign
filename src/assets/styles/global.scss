@@ -1,0 +1,15 @@
+// Import Tailwind base styles
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Define SCSS variables
+$primary-color: #448c74;
+$secondary-color: #82b3a2;
+
+// Global styles
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
