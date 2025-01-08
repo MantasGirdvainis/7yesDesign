@@ -1,5 +1,4 @@
-import './App.scss'
-
+import './App.css'
 import Layout from './components/layout/Layout';
 import CheckoutPage from './pages/CheckoutPage';
 
