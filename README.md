@@ -8,3 +8,5 @@ The project uses the following technologies:
 - **TypeScript**: A strongly typed superset of JavaScript.
 - **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
 
+Project link: https://7yes-design.vercel.app/
+
