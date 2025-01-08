@@ -3,7 +3,12 @@ import Item from "../common/Item";
 import CouponInput from "../common/CouponInput";
 import Totals from "../common/Totals";
 
+/**
+ * @component OrderSummary
+ * @description Displays a summary of the order, including items, coupon input, and total amounts.
+ */
 const OrderSummary: React.FC = () => {
+  // Handlers for item actions
   const handleIncrement = (item: string) => {
     console.log(`Increment quantity for ${item}`);
   };
@@ -16,20 +21,24 @@ const OrderSummary: React.FC = () => {
     console.log(`Remove ${item} from the order`);
   };
 
-  const handleCuponInput = (item: string) => {
-    console.log(`Added ${item} cupon`);
+  // Handler for coupon input
+  const handleCouponInput = (coupon: string) => {
+    console.log(`Added ${coupon} coupon`);
   };
 
+  // Example prices
   const subtotal = 92.0;
   const taxes = 8.0;
   const shipping = 15.0;
 
   return (
     <div className="bg-white rounded-lg p-6">
+      {/* Header */}
       <h2 className="text-2xl font-medium mb-6">
         Order Summary <span className="text-gray-500 text-sm">(4 items)</span>
       </h2>
 
+      {/* Items List */}
       <ul className="divide-y divide-gray-200 border-t border-b border-gray-200">
         <Item
           image="https://via.placeholder.com/50"
@@ -63,13 +72,12 @@ const OrderSummary: React.FC = () => {
         />
       </ul>
 
+      {/* Coupon Input */}
       <div className="mt-6">
-        <CouponInput
-          buttonText="Apply coupon"
-          onApply={() => handleCuponInput("WEAADD")}
-        />
+        <CouponInput buttonText="Apply coupon" onApply={handleCouponInput} />
       </div>
 
+      {/* Totals */}
       <div className="mt-6">
         <Totals subtotal={subtotal} taxes={taxes} shipping={shipping} />
       </div>

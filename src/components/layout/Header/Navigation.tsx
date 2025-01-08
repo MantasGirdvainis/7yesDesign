@@ -1,6 +1,18 @@
 import React, { useState, useRef } from "react";
 import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
 
+/**
+ * @component Navigation
+ * @description Provides navigation links for desktop and mobile views, including dropdown menus for specific links.
+ *
+ * @features
+ * - Desktop and mobile navigation.
+ * - Dropdown menus for categories, pages, and accounts.
+ * - Mobile-specific dropdown toggles.
+ *
+ * @usage
+ * <Navigation />
+ */
 const Navigation: React.FC = () => {
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -9,6 +21,11 @@ const Navigation: React.FC = () => {
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  /**
+   * @function handleMouseEnter
+   * @description Opens the dropdown for the hovered link (desktop only).
+   * @param {string} link - The link associated with the dropdown.
+   */
   const handleMouseEnter = (link: string) => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -16,21 +33,40 @@ const Navigation: React.FC = () => {
     setDropdownOpen(link);
   };
 
+  /**
+   * @function handleMouseLeave
+   * @description Closes the dropdown after a delay (desktop only).
+   */
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setDropdownOpen(null);
     }, 200);
   };
 
+  /**
+   * @function handleClick
+   * @description Activates the clicked link.
+   * @param {React.MouseEvent} e - The click event.
+   * @param {string} link - The link to activate.
+   */
   const handleClick = (e: React.MouseEvent, link: string) => {
     e.preventDefault();
     setActiveLink(link);
   };
 
+  /**
+   * @function toggleMobileMenu
+   * @description Toggles the mobile navigation menu.
+   */
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  /**
+   * @function handleMobileDropdownToggle
+   * @description Toggles dropdowns in the mobile menu.
+   * @param {string} link - The link associated with the dropdown.
+   */
   const handleMobileDropdownToggle = (link: string) => {
     setMobileDropdown(mobileDropdown === link ? null : link);
   };

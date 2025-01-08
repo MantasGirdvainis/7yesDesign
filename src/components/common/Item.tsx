@@ -2,18 +2,58 @@ import React from "react";
 import { FiTrash, FiPlus, FiMinus } from "react-icons/fi";
 
 interface ItemProps {
+  /** URL of the item's image */
   image: string;
+  /** Title or name of the item */
   title: string;
+  /** (Optional) Color of the item */
   color?: string;
+  /** (Optional) Weight of the item */
   weight?: string;
+  /** Current price of the item */
   price: string;
+  /** (Optional) Original price of the item (for discounts) */
   originalPrice?: string;
+  /** Current quantity of the item */
   quantity: number;
+  /** Function to handle quantity increment */
   onIncrement: () => void;
+  /** Function to handle quantity decrement */
   onDecrement: () => void;
+  /** Function to handle item removal */
   onRemove: () => void;
 }
 
+/**
+ * @component Item
+ * @description Represents a single item in a cart or order summary, with options to update quantity or remove the item.
+ *
+ * @props
+ * - `image` (string): URL of the item's image.
+ * - `title` (string): Name or title of the item.
+ * - `color` (string | optional): Color of the item, if applicable.
+ * - `weight` (string | optional): Weight of the item, if applicable.
+ * - `price` (string): The current price of the item.
+ * - `originalPrice` (string | optional): The original price of the item (useful for discounts).
+ * - `quantity` (number): The current quantity of the item.
+ * - `onIncrement` (function): Callback to increment the item's quantity.
+ * - `onDecrement` (function): Callback to decrement the item's quantity.
+ * - `onRemove` (function): Callback to remove the item.
+ *
+ * @usage
+ * <Item
+ *   image="https://via.placeholder.com/50"
+ *   title="Example Item"
+ *   color="Blue"
+ *   weight="200g"
+ *   price="$10.00"
+ *   originalPrice="$15.00"
+ *   quantity={1}
+ *   onIncrement={() => console.log("Increment quantity")}
+ *   onDecrement={() => console.log("Decrement quantity")}
+ *   onRemove={() => console.log("Remove item")}
+ * />
+ */
 const Item: React.FC<ItemProps> = ({
   image,
   title,
@@ -28,7 +68,7 @@ const Item: React.FC<ItemProps> = ({
 }) => {
   return (
     <li className="flex justify-between py-4">
-      {/* Left: Image and details */}
+      {/* Left Section: Image and Details */}
       <div className="flex">
         <img
           src={image}
@@ -39,7 +79,9 @@ const Item: React.FC<ItemProps> = ({
           <p className="text-base font-medium">{title}</p>
           {color && weight && (
             <p className="text-xs text-gray-500">
-              <span>Color:</span> <span className="font-semibold">{color}</span> | <span>Weight:</span> <span className="font-semibold">{weight}</span>
+              <span>Color:</span> <span className="font-semibold">{color}</span>{" "}
+              | <span>Weight:</span>{" "}
+              <span className="font-semibold">{weight}</span>
             </p>
           )}
           <div className="flex items-center mt-2 space-x-4">
@@ -52,7 +94,7 @@ const Item: React.FC<ItemProps> = ({
               <FiMinus size={16} />
             </button>
 
-            {/* Quantity */}
+            {/* Quantity Display */}
             <p className="text-sm font-medium">{quantity}</p>
 
             {/* Increment Button */}
@@ -67,7 +109,7 @@ const Item: React.FC<ItemProps> = ({
         </div>
       </div>
 
-      {/* Right: Price and actions */}
+      {/* Right Section: Price and Actions */}
       <div className="flex flex-col items-end">
         <p className="font-medium text-gray-500">{price}</p>
         {originalPrice && (

@@ -1,5 +1,12 @@
 import React from "react";
 
+/**
+ * @component Footer
+ * @description Displays the footer section with company branding and copyright information.
+ *
+ * @usage
+ * <Footer />
+ */
 const Footer: React.FC = () => {
   return (
     <footer className="py-4">

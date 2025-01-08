@@ -1,13 +1,21 @@
 import React from "react";
 import RadioField from "../common/RadioField";
 
+/**
+ * @component ShippingMethod
+ * @description A section of the checkout form that allows users to select their preferred shipping method.
+ *
+ * @usage
+ * This component is used in the checkout process to provide shipping options, including
+ * standard delivery, express shipping, and local pickup.
+ */
 const ShippingMethod: React.FC = () => {
   return (
     <div className="bg-white rounded-lg p-6">
       {/* Section Title */}
       <span className="text-xs font-medium uppercase text-gray-500">2. </span>
       <h2 className="text-xs font-medium uppercase text-gray-500 tracking-wider border-b-2 border-gray-300 inline-block pb-1 mb-4">
-        SHIPPING METHOD
+        Shipping Method
       </h2>
 
       {/* Shipping Options */}

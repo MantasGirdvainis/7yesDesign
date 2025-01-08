@@ -4,6 +4,13 @@ import Breadcrumbs from "./Breadcrumbs";
 import Navigation from "./Navigation";
 import HeaderActions from "./HeaderActions";
 
+/**
+ * @component Header
+ * @description The main header component for the application. Includes the logo, navigation, breadcrumbs, and action items.
+ *
+ * @usage
+ * <Header />
+ */
 const Header: React.FC = () => {
   return (
     <header className="bg-white">

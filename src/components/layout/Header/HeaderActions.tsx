@@ -1,12 +1,27 @@
 import React, { useState } from "react";
 import { FiSun, FiMoon, FiSearch, FiUser } from "react-icons/fi";
 
+/**
+ * @component HeaderActions
+ * @description Provides a set of actions for the header, including theme toggle, search, and account actions.
+ *
+ * @features
+ * - Theme toggle switch with light and dark mode options.
+ * - Search and account action buttons.
+ *
+ * @usage
+ * <HeaderActions />
+ */
 const HeaderActions: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  /**
+   * @function toggleTheme
+   * @description Toggles between light and dark themes.
+   */
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle("dark", !isDarkMode); // Example for dark mode class
+    document.body.classList.toggle("dark", !isDarkMode);
   };
 
   return (
@@ -19,9 +34,7 @@ const HeaderActions: React.FC = () => {
           aria-label="Light theme"
           onClick={() => setIsDarkMode(false)}
         >
-          <FiSun
-            className={isDarkMode ? "text-gray-400" : "text-primary"}
-          />
+          <FiSun className={isDarkMode ? "text-gray-400" : "text-primary"} />
         </button>
 
         {/* Toggle Switch */}
