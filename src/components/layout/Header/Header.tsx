@@ -1,8 +1,8 @@
-import React from 'react';
-import Logo from './Logo';
-import Breadcrumbs from './Breadcrumbs';
-import Navigation from './Navigation';
-import HeaderActions from './HeaderActions';
+import React from "react";
+import Logo from "./Logo";
+import Breadcrumbs from "./Breadcrumbs";
+import Navigation from "./Navigation";
+import HeaderActions from "./HeaderActions";
 
 const Header: React.FC = () => {
   return (

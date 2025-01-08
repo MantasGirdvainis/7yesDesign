@@ -17,7 +17,7 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
   return (
     <div className="relative w-full">
       {icon && (
-        <div className="absolute left-3 top-10 transform -translate-y-1/2 text-gray-400">
+        <div className="absolute left-3 top-11 transform -translate-y-1/2 text-gray-400">
           {icon === "email" && <FiMail size={18} />}
           {icon === "phone" && <FiPhone size={18} />}
         </div>
@@ -26,7 +26,7 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
         {label}
       </label>
       <input
-        className={`w-full ${icon ? "pl-10" : "pl-3"} p-3 text-xs border border-gray-300 rounded-2xl focus:ring-2 focus:ring-[#82b3a2] focus:outline-none`}
+        className={`w-full ${icon ? "pl-10" : "pl-3"} p-3 text-xs border border-gray-300 rounded-2xl focus:ring-2 focus:ring-primaryLight focus:outline-none`}
         type={type}
         placeholder={placeholder}
       />

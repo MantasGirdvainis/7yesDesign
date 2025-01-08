@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
 const Breadcrumbs: React.FC = () => {
   const breadcrumbs = [
-    { name: 'Home', path: '/' },
-    { name: 'Shop', path: '/shop' },
-    { name: 'Checkout', path: '/checkout' },
+    { name: "Home", path: "/" },
+    { name: "Shop", path: "/shop" },
+    { name: "Checkout", path: "/checkout" },
   ];
 
-  const activePath = '/checkout';
+  const activePath = "/checkout";
 
   return (
     <nav className="text-xs text-gray-400 flex items-center space-x-2">
@@ -17,8 +17,8 @@ const Breadcrumbs: React.FC = () => {
             href={breadcrumb.path}
             className={`${
               breadcrumb.path === activePath
-                ? 'text-[#82b3a2]'
-                : 'hover:underline text-gray-400'
+                ? "text-primaryLight"
+                : "hover:underline text-gray-400"
             }`}
           >
             {breadcrumb.name}

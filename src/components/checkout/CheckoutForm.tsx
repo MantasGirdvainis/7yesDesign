@@ -1,8 +1,8 @@
 import React from "react";
-import TextInputField from "../common/TextInputField"; // Import TextInputField
-import DropdownField from "../common/DropdownField"; // Import DropdownField
-import TextareaField from "../common/TextareaField"; // Import TextareaField
-import CheckboxField from "../common/CheckboxField"; // Import CheckboxField
+import TextInputField from "../common/TextInputField";
+import DropdownField from "../common/DropdownField";
+import TextareaField from "../common/TextareaField";
+import CheckboxField from "../common/CheckboxField";
 
 const CheckoutForm: React.FC = () => {
   return (
@@ -33,7 +33,6 @@ const CheckoutForm: React.FC = () => {
         />
       </div>
 
-      {/* Country as a full-width input */}
       <div className="mb-4">
         <DropdownField
           label="Country"
@@ -57,7 +56,6 @@ const CheckoutForm: React.FC = () => {
         placeholder="Additional instructions"
       />
 
-      {/* Billing Address Checkbox */}
       <div className="flex items-center mt-4">
         <CheckboxField
           id="billing-checkbox"

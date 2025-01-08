@@ -18,8 +18,12 @@ const ShippingMethod: React.FC = () => {
           label={
             <div className="flex justify-between w-full">
               <div>
-                <span className="font-medium text-gray-900">Standard Delivery</span>
-                <p className="text-sm text-gray-500">Delivery in 5 - 8 working days</p>
+                <span className="font-medium text-gray-900">
+                  Standard Delivery
+                </span>
+                <p className="text-sm text-gray-500">
+                  Delivery in 5 - 8 working days
+                </p>
               </div>
               <span className="font-semibold">$8.00</span>
             </div>
@@ -31,8 +35,12 @@ const ShippingMethod: React.FC = () => {
           label={
             <div className="flex justify-between w-full">
               <div>
-                <span className="font-medium text-gray-900">Express Shipping</span>
-                <p className="text-sm text-gray-500">Delivery in 3 - 5 working days</p>
+                <span className="font-medium text-gray-900">
+                  Express Shipping
+                </span>
+                <p className="text-sm text-gray-500">
+                  Delivery in 3 - 5 working days
+                </p>
               </div>
               <span className="font-semibold">$15.00</span>
             </div>
@@ -45,7 +53,9 @@ const ShippingMethod: React.FC = () => {
             <div className="flex justify-between w-full">
               <div>
                 <span className="font-medium text-gray-900">Local Pickup</span>
-                <p className="text-sm text-gray-500">Delivery in 1 - 2 working days</p>
+                <p className="text-sm text-gray-500">
+                  Delivery in 1 - 2 working days
+                </p>
               </div>
               <span className="font-semibold">Free</span>
             </div>

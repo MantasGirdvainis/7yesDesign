@@ -18,7 +18,7 @@ const DropdownField: React.FC<DropdownFieldProps> = ({
         {label}
       </label>
       <select
-        className="w-full text-xs p-3 pl-4 pr-10 border text-gray-400 border-gray-300 rounded-2xl focus:ring-2 focus:ring-[#82b3a2] focus:outline-none appearance-none"
+        className="w-full text-xs p-3 pl-4 pr-10 border text-gray-400 border-gray-300 rounded-2xl focus:ring-2 focus:ring-primary focus:outline-none appearance-none"
       >
         <option value="">{placeholder}</option>
         {options.map((option, index) => (
@@ -28,8 +28,8 @@ const DropdownField: React.FC<DropdownFieldProps> = ({
         ))}
       </select>
       {/* Custom Arrow */}
-      <div className="absolute right-5 top-10 transform -translate-y-1/2 pointer-events-none">
-      <FiChevronDown size={16} className="text-gray-500" />
+      <div className="absolute right-5 top-11 transform -translate-y-1/2 pointer-events-none">
+        <FiChevronDown size={16} className="text-gray-500" />
       </div>
     </div>
   );

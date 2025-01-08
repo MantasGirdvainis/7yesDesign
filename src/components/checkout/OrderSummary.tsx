@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "../common/Item";
 import CouponInput from "../common/CouponInput";
-import Totals from "../common/Totals"; // Import Totals Component
+import Totals from "../common/Totals";
 
 const OrderSummary: React.FC = () => {
   const handleIncrement = (item: string) => {
@@ -20,10 +20,9 @@ const OrderSummary: React.FC = () => {
     console.log(`Added ${item} cupon`);
   };
 
-  // Example prices
-  const subtotal = 92.00;
-  const taxes = 8.00;
-  const shipping = 15.00;
+  const subtotal = 92.0;
+  const taxes = 8.0;
+  const shipping = 15.0;
 
   return (
     <div className="bg-white rounded-lg p-6">
@@ -64,7 +63,6 @@ const OrderSummary: React.FC = () => {
         />
       </ul>
 
-      {/* Coupon Input */}
       <div className="mt-6">
         <CouponInput
           buttonText="Apply coupon"
@@ -72,7 +70,6 @@ const OrderSummary: React.FC = () => {
         />
       </div>
 
-      {/* Use the Totals Component */}
       <div className="mt-6">
         <Totals subtotal={subtotal} taxes={taxes} shipping={shipping} />
       </div>

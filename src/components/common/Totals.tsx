@@ -25,7 +25,7 @@ const Totals: React.FC<TotalsProps> = ({ subtotal, taxes, shipping }) => {
       </div>
 
       {/* Add a divider line */}
-      <div className="my-4 border-t border-gray-200" />
+      <div className="my-4 border-t border-gray-divider" />
 
       <div className="mt-4 flex justify-between">
         <p className="text-base text-gray-500">Total:</p>

@@ -12,7 +12,7 @@ const TextareaField: React.FC<TextareaFieldProps> = ({ label, placeholder }) => 
         {label}
       </label>
       <textarea
-        className="w-full text-xs p-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-[#82b3a2] focus:outline-none"
+        className="w-full text-xs p-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-primaryLight focus:outline-none"
         placeholder={placeholder}
         rows={4}
       />

@@ -4,7 +4,7 @@ import OrderSummary from "../components/checkout/OrderSummary";
 import ShippingMethod from "../components/checkout/ShippingMethod";
 import PaymentMethod from "../components/checkout/PaymentMethod";
 import Button from "../components/common/Button";
-import CheckboxField from "../components/common/CheckboxField"; // Import CheckboxField
+import CheckboxField from "../components/common/CheckboxField";
 
 const CheckoutPage: React.FC = () => {
   return (
@@ -23,13 +23,13 @@ const CheckoutPage: React.FC = () => {
                 <span>
                   Your personal information will be used to process your order, to support
                   your experience on this site and for other purposes described in the{" "}
-                  <a href="/privacy-policy" className="text-[#82b3a2] underline">
+                  <a href="/privacy-policy" className="text-primaryLight underline">
                     privacy policy
                   </a>
                   .
                 </span>
               }
-              id="privacy-checkbox" // Add unique ID for checkbox
+              id="privacy-checkbox" // Unique ID for checkbox
             />
           </div>
 

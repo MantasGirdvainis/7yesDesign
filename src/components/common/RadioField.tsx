@@ -13,11 +13,7 @@ const RadioField: React.FC<RadioFieldProps> = ({ label, id, name }) => {
         id={id}
         name={name}
         type="radio"
-        className="peer
-          appearance-none shrink-0
-          w-3 h-3 border-2 border-[#82b3a2] rounded-full
-          focus:outline-none focus:ring-2 focus:ring-[#82b3a2]
-          disabled:border-gray-400 mt-1"
+        className="peer appearance-none shrink-0 w-3 h-3 border-2 border-primaryLight rounded-full focus:outline-none focus:ring-2 focus:ring-primaryLight disabled:border-gray-400 mt-1"
       />
       <label
         htmlFor={id}

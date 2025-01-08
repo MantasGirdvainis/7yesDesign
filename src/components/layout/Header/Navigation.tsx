@@ -19,11 +19,11 @@ const Navigation: React.FC = () => {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setDropdownOpen(null);
-    }, 200); // Delay for smooth UX
+    }, 200);
   };
 
   const handleClick = (e: React.MouseEvent, link: string) => {
-    e.preventDefault(); // Prevent navigation
+    e.preventDefault();
     setActiveLink(link);
   };
 
@@ -37,122 +37,45 @@ const Navigation: React.FC = () => {
 
   return (
     <div>
-      {/* Desktop and Tablet Navigation */}
+      {/* Desktop Navigation */}
       <nav className="hidden md:flex gap-8 items-center">
-        {/* Categories */}
-        <div
-          className="relative"
-          onMouseEnter={() => handleMouseEnter("categories")}
-          onMouseLeave={handleMouseLeave}
-        >
-          <a
-            href="#"
-            onClick={(e) => handleClick(e, "categories")}
-            className={`flex items-center gap-1 text-sm ${
-              activeLink === "categories" ? "text-[#82b3a2]" : "text-gray-700"
-            } hover:text-[#82b3a2]`}
+        {["categories", "pages", "account", "blog", "reviews"].map((link) => (
+          <div
+            key={link}
+            className="relative"
+            onMouseEnter={() => handleMouseEnter(link)}
+            onMouseLeave={handleMouseLeave}
           >
-            Categories <FiChevronDown />
-          </a>
-          {dropdownOpen === "categories" && (
-            <div
-              className="absolute top-full text-sm shadow left-0 mt-2 w-48 bg-white rounded-md p-4"
-              onMouseEnter={() => handleMouseEnter("categories")}
-              onMouseLeave={handleMouseLeave}
+            <a
+              href="#"
+              onClick={(e) => handleClick(e, link)}
+              className={`flex items-center gap-1 text-sm ${
+                activeLink === link ? "text-primaryLight" : "text-gray-700"
+              } hover:text-primaryLight`}
             >
-              <a href="/categories/sub1" className="block text-gray-700 hover:text-[#82b3a2]">
-                Subcategory 1
-              </a>
-              <a href="/categories/sub2" className="block text-gray-700 hover:text-[#82b3a2]">
-                Subcategory 2
-              </a>
-            </div>
-          )}
-        </div>
-
-        {/* Pages */}
-        <div
-          className="relative"
-          onMouseEnter={() => handleMouseEnter("pages")}
-          onMouseLeave={handleMouseLeave}
-        >
-          <a
-            href="#"
-            onClick={(e) => handleClick(e, "pages")}
-            className={`flex items-center gap-1 text-sm ${
-              activeLink === "pages" ? "text-[#82b3a2]" : "text-gray-700"
-            } hover:text-[#82b3a2]`}
-          >
-            Pages <FiChevronDown />
-          </a>
-          {dropdownOpen === "pages" && (
-            <div
-              className="absolute top-full text-sm shadow left-0 mt-2 w-48 bg-white rounded-md p-4"
-              onMouseEnter={() => handleMouseEnter("pages")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="/pages/page1" className="block text-gray-700 hover:text-[#82b3a2]">
-                Page 1
-              </a>
-              <a href="/pages/page2" className="block text-gray-700 hover:text-[#82b3a2]">
-                Page 2
-              </a>
-            </div>
-          )}
-        </div>
-
-        {/* Account */}
-        <div
-          className="relative"
-          onMouseEnter={() => handleMouseEnter("account")}
-          onMouseLeave={handleMouseLeave}
-        >
-          <a
-            href="#"
-            onClick={(e) => handleClick(e, "account")}
-            className={`flex items-center gap-1 text-sm ${
-              activeLink === "account" ? "text-[#82b3a2]" : "text-gray-700"
-            } hover:text-[#82b3a2]`}
-          >
-            Account <FiChevronDown />
-          </a>
-          {dropdownOpen === "account" && (
-            <div
-              className="absolute top-full text-sm shadow left-0 mt-2 w-48 bg-white rounded-md p-4"
-              onMouseEnter={() => handleMouseEnter("account")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="/account/profile" className="block text-gray-700 hover:text-[#82b3a2]">
-                Profile
-              </a>
-              <a href="/account/settings" className="block text-gray-700 hover:text-[#82b3a2]">
-                Settings
-              </a>
-            </div>
-          )}
-        </div>
-
-        {/* Blog */}
-        <a
-          href="#"
-          onClick={(e) => handleClick(e, "blog")}
-          className={`${
-            activeLink === "blog" ? "text-[#82b3a2]" : "text-gray-700"
-          } hover:text-[#82b3a2] text-sm`}
-        >
-          Blog
-        </a>
-
-        {/* Reviews */}
-        <a
-          href="#"
-          onClick={(e) => handleClick(e, "reviews")}
-          className={`${
-            activeLink === "reviews" ? "text-[#82b3a2]" : "text-gray-700"
-          } hover:text-[#82b3a2] text-sm`}
-        >
-          Reviews
-        </a>
+              {link.charAt(0).toUpperCase() + link.slice(1)}
+              {["categories", "pages", "account"].includes(link) && (
+                <FiChevronDown />
+              )}
+            </a>
+            {dropdownOpen === link && (
+              <div className="absolute top-full text-sm shadow left-0 mt-2 w-48 bg-white rounded-md p-4">
+                <a
+                  href={`/${link}/sub1`}
+                  className="block text-gray-700 hover:text-primaryLight"
+                >
+                  Subcategory 1
+                </a>
+                <a
+                  href={`/${link}/sub2`}
+                  className="block text-gray-700 hover:text-primaryLight"
+                >
+                  Subcategory 2
+                </a>
+              </div>
+            )}
+          </div>
+        ))}
       </nav>
 
       {/* Mobile Navigation */}
@@ -168,69 +91,34 @@ const Navigation: React.FC = () => {
 
       {isMobileMenuOpen && (
         <div className="absolute top-16 left-0 w-full bg-white p-4 text-sm">
-          {/* Categories */}
-          <a
-            href="#"
-            onClick={() => handleMobileDropdownToggle("categories")}
-            className="block flex justify-between text-gray-700 hover:text-[#82b3a2] py-2"
-          >
-            Categories <FiChevronDown />
-          </a>
-          {mobileDropdown === "categories" && (
-            <div className="ml-4">
-              <a href="/categories/sub1" className="block text-gray-700 hover:text-[#82b3a2] py-1">
-                Subcategory 1
+          {["categories", "pages", "account"].map((link) => (
+            <div key={link}>
+              <a
+                href="#"
+                onClick={() => handleMobileDropdownToggle(link)}
+                className="block flex justify-between text-gray-700 hover:text-primaryLight py-2"
+              >
+                {link.charAt(0).toUpperCase() + link.slice(1)}
+                <FiChevronDown />
               </a>
-              <a href="/categories/sub2" className="block text-gray-700 hover:text-[#82b3a2] py-1">
-                Subcategory 2
-              </a>
+              {mobileDropdown === link && (
+                <div className="ml-4">
+                  <a
+                    href={`/${link}/sub1`}
+                    className="block text-gray-700 hover:text-primaryLight py-1"
+                  >
+                    Subcategory 1
+                  </a>
+                  <a
+                    href={`/${link}/sub2`}
+                    className="block text-gray-700 hover:text-primaryLight py-1"
+                  >
+                    Subcategory 2
+                  </a>
+                </div>
+              )}
             </div>
-          )}
-
-          {/* Pages */}
-          <a
-            href="#"
-            onClick={() => handleMobileDropdownToggle("pages")}
-            className="block flex justify-between text-gray-700 hover:text-[#82b3a2] py-2"
-          >
-            Pages <FiChevronDown />
-          </a>
-          {mobileDropdown === "pages" && (
-            <div className="ml-4">
-              <a href="/pages/page1" className="block text-gray-700 hover:text-[#82b3a2] py-1">
-                Page 1
-              </a>
-              <a href="/pages/page2" className="block text-gray-700 hover:text-[#82b3a2] py-1">
-                Page 2
-              </a>
-            </div>
-          )}
-
-          {/* Account */}
-          <a
-            href="#"
-            onClick={() => handleMobileDropdownToggle("account")}
-            className="block flex justify-between text-gray-700 hover:text-[#82b3a2] py-2"
-          >
-            Account <FiChevronDown />
-          </a>
-          {mobileDropdown === "account" && (
-            <div className="ml-4">
-              <a href="/account/profile" className="block text-gray-700 hover:text-[#82b3a2] py-1">
-                Profile
-              </a>
-              <a href="/account/settings" className="block text-gray-700 hover:text-[#82b3a2] py-1">
-                Settings
-              </a>
-            </div>
-          )}
-
-          <a href="/blog" className="block text-gray-700 hover:text-[#82b3a2] py-2">
-            Blog
-          </a>
-          <a href="/reviews" className="block text-gray-700 hover:text-[#82b3a2] py-2">
-            Reviews
-          </a>
+          ))}
         </div>
       )}
     </div>

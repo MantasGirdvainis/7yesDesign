@@ -37,9 +37,11 @@ const Item: React.FC<ItemProps> = ({
         />
         <div className="ml-4">
           <p className="text-base font-medium">{title}</p>
-          {color && weight ? <p className="text-xs">
-            <span className="text-gray-500">Color:</span> <span className="font-semibold">{color}</span> | <span className="text-gray-500">Weight:</span> <span className="font-semibold">{weight}</span>
-          </p> : '' }
+          {color && weight && (
+            <p className="text-xs text-gray-500">
+              <span>Color:</span> <span className="font-semibold">{color}</span> | <span>Weight:</span> <span className="font-semibold">{weight}</span>
+            </p>
+          )}
           <div className="flex items-center mt-2 space-x-4">
             {/* Decrement Button */}
             <button
@@ -47,7 +49,7 @@ const Item: React.FC<ItemProps> = ({
               onClick={onDecrement}
               aria-label="Decrease quantity"
             >
-              <FiMinus className="text-base" size={10}  />
+              <FiMinus size={16} />
             </button>
 
             {/* Quantity */}
@@ -55,11 +57,11 @@ const Item: React.FC<ItemProps> = ({
 
             {/* Increment Button */}
             <button
-              className="hover:text-[#82b3a2]"
+              className="hover:text-primary"
               onClick={onIncrement}
               aria-label="Increase quantity"
             >
-              <FiPlus className="text-base" size={10} />
+              <FiPlus size={16} />
             </button>
           </div>
         </div>
@@ -76,7 +78,7 @@ const Item: React.FC<ItemProps> = ({
           onClick={onRemove}
           aria-label="Remove item"
         >
-          <FiTrash className="text-base" />
+          <FiTrash size={16} />
         </button>
       </div>
     </li>

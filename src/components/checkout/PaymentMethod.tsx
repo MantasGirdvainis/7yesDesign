@@ -1,5 +1,5 @@
 import React from "react";
-import RadioField from "../common/RadioField"; // Import RadioField component
+import RadioField from "../common/RadioField";
 
 const PaymentMethod: React.FC = () => {
   return (
@@ -16,7 +16,9 @@ const PaymentMethod: React.FC = () => {
             <div className="flex justify-between w-full">
               <div>
                 <span className="font-medium text-gray-900">Credit Card</span>
-                <p className="text-sm text-gray-500">Mastercard, Maestro, American Express, Visa are accepted</p>
+                <p className="text-sm text-gray-500">
+                  Mastercard, Maestro, American Express, Visa are accepted
+                </p>
               </div>
             </div>
           }
@@ -27,8 +29,12 @@ const PaymentMethod: React.FC = () => {
           label={
             <div className="flex justify-between w-full">
               <div>
-                <span className="font-medium text-gray-900">Cash on Delivery</span>
-                <p className="text-sm text-gray-500">Pay with cash upon the delivery</p>
+                <span className="font-medium text-gray-900">
+                  Cash on Delivery
+                </span>
+                <p className="text-sm text-gray-500">
+                  Pay with cash upon the delivery
+                </p>
               </div>
             </div>
           }

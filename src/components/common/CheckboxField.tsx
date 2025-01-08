@@ -8,7 +8,11 @@ interface CheckboxFieldProps {
 const CheckboxField: React.FC<CheckboxFieldProps> = ({ label, id }) => {
   return (
     <div className="flex items-center">
-      <input id={id} type="checkbox" className="w-3 h-3 accent-teal-600" />
+      <input
+        id={id}
+        type="checkbox"
+        className="w-3 h-3 accent-primary"
+      />
       <label htmlFor={id} className="ml-2 text-xs text-gray-700">
         {label}
       </label>
