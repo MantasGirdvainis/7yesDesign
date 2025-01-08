@@ -7,5 +7,4 @@ The project uses the following technologies:
 - **React**: A JavaScript library for building user interfaces.
 - **TypeScript**: A strongly typed superset of JavaScript.
 - **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
-- **Sass**: A CSS preprocessor for better styling.
 
