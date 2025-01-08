@@ -7,8 +7,8 @@ import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
  *
  * @features
  * - Desktop and mobile navigation.
- * - Dropdown menus for categories, pages, and accounts.
- * - Mobile-specific dropdown toggles.
+ * - Dropdown menus for "Categories", "Pages", and "Account".
+ * - Simple links for "Blog" and "Reviews".
  *
  * @usage
  * <Navigation />
@@ -17,7 +17,6 @@ const Navigation: React.FC = () => {
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
-  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -62,20 +61,12 @@ const Navigation: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  /**
-   * @function handleMobileDropdownToggle
-   * @description Toggles dropdowns in the mobile menu.
-   * @param {string} link - The link associated with the dropdown.
-   */
-  const handleMobileDropdownToggle = (link: string) => {
-    setMobileDropdown(mobileDropdown === link ? null : link);
-  };
-
   return (
     <div>
       {/* Desktop Navigation */}
       <nav className="hidden md:flex gap-8 items-center">
-        {["categories", "pages", "account", "blog", "reviews"].map((link) => (
+        {/* Links with dropdowns */}
+        {["categories", "pages", "account"].map((link) => (
           <div
             key={link}
             className="relative"
@@ -90,9 +81,7 @@ const Navigation: React.FC = () => {
               } hover:text-primaryLight`}
             >
               {link.charAt(0).toUpperCase() + link.slice(1)}
-              {["categories", "pages", "account"].includes(link) && (
-                <FiChevronDown />
-              )}
+              <FiChevronDown />
             </a>
             {dropdownOpen === link && (
               <div className="absolute top-full text-sm shadow left-0 mt-2 w-48 bg-white rounded-md p-4">
@@ -112,6 +101,20 @@ const Navigation: React.FC = () => {
             )}
           </div>
         ))}
+
+        {/* Simple links */}
+        {["blog", "reviews"].map((link) => (
+          <a
+            key={link}
+            href={`/${link}`}
+            onClick={(e) => handleClick(e, link)}
+            className={`text-sm ${
+              activeLink === link ? "text-primaryLight" : "text-gray-700"
+            } hover:text-primaryLight`}
+          >
+            {link.charAt(0).toUpperCase() + link.slice(1)}
+          </a>
+        ))}
       </nav>
 
       {/* Mobile Navigation */}
@@ -127,17 +130,20 @@ const Navigation: React.FC = () => {
 
       {isMobileMenuOpen && (
         <div className="absolute top-16 left-0 w-full bg-white p-4 text-sm">
+          {/* Links with dropdowns */}
           {["categories", "pages", "account"].map((link) => (
             <div key={link}>
               <a
                 href="#"
-                onClick={() => handleMobileDropdownToggle(link)}
-                className="block flex justify-between text-gray-700 hover:text-primaryLight py-2"
+                onClick={() =>
+                  setDropdownOpen(dropdownOpen === link ? null : link)
+                }
+                className="flex justify-between text-gray-700 hover:text-primaryLight py-2"
               >
                 {link.charAt(0).toUpperCase() + link.slice(1)}
                 <FiChevronDown />
               </a>
-              {mobileDropdown === link && (
+              {dropdownOpen === link && (
                 <div className="ml-4">
                   <a
                     href={`/${link}/sub1`}
@@ -154,6 +160,17 @@ const Navigation: React.FC = () => {
                 </div>
               )}
             </div>
+          ))}
+
+          {/* Simple links */}
+          {["blog", "reviews"].map((link) => (
+            <a
+              key={link}
+              href={`/${link}`}
+              className="block text-gray-700 hover:text-primaryLight py-2"
+            >
+              {link.charAt(0).toUpperCase() + link.slice(1)}
+            </a>
           ))}
         </div>
       )}
